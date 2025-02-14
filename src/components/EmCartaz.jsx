@@ -51,6 +51,7 @@ const Conteudo = styled.div`
     background-color: #212226 ;
     max-width: 500px ;
     height: 100%;
+    padding-top:68px;
 
 `
 const Titulo = styled.div`
@@ -74,12 +75,7 @@ const Cartaz = styled.ul`
     align-items: center;
     flex-wrap: wrap;
 
-    margin-left: 4px;
-    
-
-
-    
-    
+    margin-left: 4px;   
 `
 
 const Filme = styled.li`
@@ -97,9 +93,7 @@ const Filme = styled.li`
 const Carregando = styled.img`
 
     width:50px;
-    margin-top:200px;
-    margin-left:150px;
-
-    z-index:1;
-    
+    margin-top:260px;
+    margin-left:235px;   
 `
+ 

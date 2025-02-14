@@ -16,6 +16,11 @@ export default function Navbar() {
 
 
 const Topo = styled.div`
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    
     width: 375;
     height: 67;
     padding: 9px;

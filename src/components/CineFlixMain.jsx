@@ -16,10 +16,9 @@ export default function CineFlixMain() {
 
             {/*<Sessoes/>*/}
 
-            {/*<Assentos/>*/}
+             {/* <Assentos/>*/}
 
-            <PedidoFinalizado/>
-
+            {/*<PedidoFinalizado/>*/}
         </div>
 
     )
