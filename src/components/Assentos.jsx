@@ -88,6 +88,7 @@ const Conteudo = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-top:68px;
 `
 
 const Titulo = styled.div`
