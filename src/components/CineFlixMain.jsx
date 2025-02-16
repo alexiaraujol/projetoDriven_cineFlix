@@ -3,23 +3,22 @@ import EmCartaz from "./EmCartaz";
 import Navbar from "./Navbar";
 import PedidoFinalizado from "./PedidoFinalizado";
 import Sessoes from "./Sessoes";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function CineFlixMain() {
     return (
-        <div className="conteudo">
+        <BrowserRouter>
 
            <Navbar/>
 
-           
+           <Routes>
+                <Route path="/" element={<EmCartaz/>} />
+                <Route path="/escolher-sessao" element={<Sessoes/>} />
+                <Route path="/escolha-assento" element={<Assentos/>} />
+                <Route path="/pedido-finalizado" element={<PedidoFinalizado/>} />
+           </Routes>
 
-            <EmCartaz/>
-
-            {/*<Sessoes/>*/}
-
-             {/* <Assentos/>*/}
-
-            {/*<PedidoFinalizado/>*/}
-        </div>
+        </BrowserRouter>
 
     )
 }

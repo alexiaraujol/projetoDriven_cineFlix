@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom";
 
 export default function Assentos() {
 
@@ -71,7 +72,7 @@ export default function Assentos() {
                 <p>CPF do comprador(a)</p>
                 <CaixaTexto type="text" placeholder="Digite seu CPF..." />
 
-                <button>Resevar assento(s)</button>
+                <Botao to="/pedido-finalizado" >Resevar assento(s)</Botao>
             </Dados>
 
         </Conteudo>
@@ -131,6 +132,9 @@ const Lugares = styled.div`
     }
 `
 
+
+
+
 const Dados = styled.div`
     display: flex;
     justify-content: center;
@@ -154,8 +158,9 @@ const Dados = styled.div`
         margin-bottom: 7px;
 
     }
+`
 
-    button{
+const Botao = styled(Link)`
         width:338px ;
         height: 40px;
         font-family: "Sarala", serif;
@@ -169,11 +174,7 @@ const Dados = styled.div`
         border-radius: 8px;
         border: none;
         background-color: #EE897F ;
-
-    }
-
     
-
 `
 
 const CaixaTexto = styled.input`

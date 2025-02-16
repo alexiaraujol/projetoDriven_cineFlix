@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom";
 
 export default function PedidoFinalizado() {
     return (
@@ -28,7 +29,7 @@ export default function PedidoFinalizado() {
             </Caixa>
 
 
-            <Botao>Voltar para tela inicial</Botao>
+            <Botao to="/">Voltar para tela inicial</Botao>
 
 
 
@@ -95,7 +96,7 @@ const Caixa = styled.div`
     
 `
 
-const Botao = styled.button`
+const Botao = styled(Link)`
     width:338px ;
         height: 40px;
         font-family: "Sarala", serif;

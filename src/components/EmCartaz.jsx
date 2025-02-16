@@ -3,6 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import carregando from "../image/ZKZg.gif"
 
+import { Link } from "react-router-dom";
+
 
 
 export default function EmCartaz() {
@@ -33,7 +35,7 @@ export default function EmCartaz() {
             <Cartaz>
 
                 {filmes.map(film => (
-                    <Filme key={film.id}>
+                    <Filme to="/escolher-sessao" key={film.id}>
                         <img src={film.posterURL} />
                     </Filme>
                 ))}
@@ -78,7 +80,7 @@ const Cartaz = styled.ul`
     margin-left: 4px;   
 `
 
-const Filme = styled.li`
+const Filme = styled(Link)`
 
     img{
         width: 145px;

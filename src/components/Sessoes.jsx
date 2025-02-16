@@ -1,5 +1,7 @@
 import styled from "styled-components"
 
+import { Link } from "react-router-dom";
+
 export default function Sessoes() {
     return (
         <Conteudo>
@@ -10,8 +12,48 @@ export default function Sessoes() {
 
                 <h1> Quinta-feira, XX/XX/XXXX </h1>
 
-                <Horarios>
+                <Horarios to ="/escolha-assento">
                     <li> XX:XX </li>
+                    <li> XX:XX </li>
+                    <li> XX:XX </li>
+
+                </Horarios>
+
+
+            </Caixa>
+
+            <Caixa>
+
+                <h1> Sexta-feira, XX/XX/XXXX </h1>
+
+                <Horarios to="/escolha-assento">
+                    <li> XX:XX </li>
+                    <li> XX:XX </li>
+                    <li> XX:XX </li>
+                    <li> XX:XX </li>
+                    <li> XX:XX </li>
+                </Horarios>
+
+
+            </Caixa>
+
+            <Caixa>
+
+                <h1> Sábado, XX/XX/XXXX </h1>
+
+                <Horarios to="/escolha-assento">
+                    <li> XX:XX </li>
+                    <li> XX:XX </li>
+                    <li> XX:XX </li>
+                </Horarios>
+
+
+            </Caixa>
+            <Caixa>
+
+                <h1> Domingo, XX/XX/XXXX </h1>
+
+                <Horarios to="/escolha-assento">
                     <li> XX:XX </li>
                     <li> XX:XX </li>
                     <li> XX:XX </li>
@@ -52,7 +94,7 @@ const Caixa = styled.div`
 
     width: 338px;
     height: auto;
-    margin-bottom: 15px;
+    margin-bottom: 23px;
     background-color:#2B2D36 ;
     font-family: "Sarala", serif;
     color: #fff;
@@ -82,7 +124,7 @@ const Caixa = styled.div`
     
 `
 
-const Horarios = styled.ul`
+const Horarios = styled(Link)`
 
     display: flex;
     padding-top: 9px ;
