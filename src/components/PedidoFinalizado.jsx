@@ -106,6 +106,11 @@ const Botao = styled(Link)`
         color: #2B2D36;
 
         margin-bottom: 50px;
+
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
        
         border-radius: 8px;
         border: none;

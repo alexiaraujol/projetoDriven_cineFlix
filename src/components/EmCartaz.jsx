@@ -35,7 +35,7 @@ export default function EmCartaz() {
             <Cartaz>
 
                 {filmes.map(film => (
-                    <Filme to="/escolher-sessao" key={film.id}>
+                    <Filme to={`/sessao/${film.id}`} key={film.id}>
                         <img src={film.posterURL} />
                     </Filme>
                 ))}
@@ -77,7 +77,8 @@ const Cartaz = styled.ul`
     align-items: center;
     flex-wrap: wrap;
 
-    margin-left: 4px;   
+    padding-left: 25px;
+    padding-right: 25px; 
 `
 
 const Filme = styled(Link)`
@@ -95,7 +96,8 @@ const Filme = styled(Link)`
 const Carregando = styled.img`
 
     width:50px;
-    margin-top:260px;
-    margin-left:235px;   
+    display : flex ;
+   justify-content: center;
+   align-items: center;
 `
  

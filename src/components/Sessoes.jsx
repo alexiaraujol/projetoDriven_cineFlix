@@ -1,67 +1,51 @@
 import styled from "styled-components"
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Sessoes() {
+
+    const { idFilme } = useParams()
+
+    const [sessao, setSessao] = useState(null)
+
+    useEffect(() => {
+        axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${idFilme}/showtimes`)
+            .then(res => setSessao(res.data))
+            .catch(err => console.log(err.response.data))
+    }, [])
+
+
+    if (sessao === null) {
+        return <div>Carregando...</div>
+    }
+
     return (
         <Conteudo>
 
             <Titulo>Selecione o horário</Titulo>
 
-            <Caixa>
-
-                <h1> Quinta-feira, XX/XX/XXXX </h1>
-
-                <Horarios to ="/escolha-assento">
-                    <li> XX:XX </li>
-                    <li> XX:XX </li>
-                    <li> XX:XX </li>
-
-                </Horarios>
 
 
-            </Caixa>
+            <>
+                {sessao.days.map((dia, index) => (
+                    <Caixa>
+                        <h1> {dia.weekday}, {dia.date}</h1>
+                        <Horarios to={`/assento/${sessao.id}`} key={sessao.id}>
 
-            <Caixa>
+                            {dia.showtimes.map((horario) => (
+                               
+                                <Hora to={`/assento/${horario.id}`} key={horario.id}>{horario.name}</Hora>
+                            
+                            ))}
+                        </Horarios>
+                    </Caixa>
 
-                <h1> Sexta-feira, XX/XX/XXXX </h1>
+                ))}
 
-                <Horarios to="/escolha-assento">
-                    <li> XX:XX </li>
-                    <li> XX:XX </li>
-                    <li> XX:XX </li>
-                    <li> XX:XX </li>
-                    <li> XX:XX </li>
-                </Horarios>
+            </>
 
-
-            </Caixa>
-
-            <Caixa>
-
-                <h1> Sábado, XX/XX/XXXX </h1>
-
-                <Horarios to="/escolha-assento">
-                    <li> XX:XX </li>
-                    <li> XX:XX </li>
-                    <li> XX:XX </li>
-                </Horarios>
-
-
-            </Caixa>
-            <Caixa>
-
-                <h1> Domingo, XX/XX/XXXX </h1>
-
-                <Horarios to="/escolha-assento">
-                    <li> XX:XX </li>
-                    <li> XX:XX </li>
-                    <li> XX:XX </li>
-                    <li> XX:XX </li>
-                </Horarios>
-
-
-            </Caixa>
 
         </Conteudo>
     )
@@ -130,25 +114,24 @@ const Horarios = styled(Link)`
     padding-top: 9px ;
     padding-left: 9px ;
     flex-wrap: wrap;
-    color:#EE897F;
-
+    text-decoration:none;
    
-    
 
+`
 
-    li{
-        width: 84px;
-        height: 41px;
-        margin: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+const Hora = styled(Link)`
 
+    width: 84px;
+    height: 41px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;        
+    border: solid 2px  #EE897F ;
+    border-radius: 4px;
+    color:#EE897F;
+    text-decoration:none;
 
-        border: solid 2px  #EE897F ;
-        border-radius: 4px;
-    }
-    
 
 
 `
