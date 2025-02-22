@@ -15,7 +15,7 @@ export default function CineFlixMain() {
                 <Route path="/" element={<EmCartaz/>} />
                 <Route path="/sessao/:idFilme" element={<Sessoes/>} />
                 <Route path="/assento/:idSessao" element={<Assentos/>} />
-                <Route path="/finalizado" element={<PedidoFinalizado/>} />
+                <Route path="/pedido-finalizado" element={<PedidoFinalizado/>} />
            </Routes>
 
         </BrowserRouter>

@@ -1,41 +1,35 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function PedidoFinalizado() {
+    const location = useLocation();
+    const { selectedSeats, nome, cpf, movieData, assento } = location.state;
+
+    console.log(selectedSeats)
+    
     return (
         <Conteudo>
-
             <Titulo>Pedido finalizado!</Titulo>
-
             <Caixa>
                 <h1>Filme e sessão</h1>
-                <p>Homem-Aranha: através do aranhaverso</p>
-                <p>XX/XX/XXXX às XX:XX</p>
-                
+                <p>{movieData.title}</p>
+                <p>{assento.day.date} às {assento.name}</p>
 
                 <h1>Ingressos</h1>
-                <p>Assento 15</p>
-                <p>Assento 15</p> 
+                {selectedSeats.map((seat, index) => (
+                    <p key={index}>Assento {seat}</p>
+                ))}
                 
-                
-        
-
                 <h1>Comprador(a)</h1>
-                <p>Nome: Alexia Araujo</p>
-                <p>CPF: XXX.XXX-XX</p>
-               
-
-
+                <p>Nome: {nome}</p>
+                <p>CPF: {cpf}</p>
             </Caixa>
-
-
             <Botao to="/">Voltar para tela inicial</Botao>
-
-
-
         </Conteudo>
-    )
+    );
 }
+
+
 
 const Conteudo = styled.div`
     background-color: #212226 ;
@@ -59,8 +53,6 @@ const Titulo = styled.h1`
     font-family: "Sarala", serif;
     font-size: 24px;
     font-weight: 400;
-    
-
 `
 
 const Caixa = styled.div`
@@ -78,8 +70,6 @@ const Caixa = styled.div`
         font-weight: 700;
         color:#EE897F ;
         border-bottom:1px solid #4E5A65 ;
-
-
     }
 
     p{
@@ -88,32 +78,23 @@ const Caixa = styled.div`
         font-weight: 400;
         color:#FFFFFF ;
         margin: 18px;
-      
-
-
     }
-
-    
 `
 
 const Botao = styled(Link)`
     width:338px ;
-        height: 40px;
-        font-family: "Sarala", serif;
-        font-size: 18px;
-        font-weight: 700;
-        margin-top: 20px;
-        color: #2B2D36;
-
-        margin-bottom: 50px;
-
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-       
-        border-radius: 8px;
-        border: none;
-        background-color: #EE897F ;
-
+    height: 40px;
+    font-family: "Sarala", serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 20px;
+    color: #2B2D36;
+    margin-bottom: 50px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: none;
+    background-color: #EE897F ;
 `
