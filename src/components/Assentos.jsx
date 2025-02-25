@@ -44,6 +44,10 @@ export default function Assentos() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (selectedSeats.length === 0) {
+            alert("Por favor, selecione pelo menos um assento.");
+            return;
+        }
         const reservation = {
             ids: selectedSeats,
             name: nome,
@@ -134,6 +138,7 @@ const Titulo = styled.div`
 `
 
 const Lugares = styled.div`
+    width: 400px;
     color:#fff;
     padding: 5px 36px 28px 45px;
     flex-direction: row;

@@ -51,10 +51,13 @@ export default function EmCartaz() {
 
 const Conteudo = styled.div`
     background-color: #212226 ;
-    max-width: 500px ;
+    width: 100% ;
     height: 100%;
     padding-top:68px;
-
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 const Titulo = styled.div`
     width: 100%;
@@ -71,12 +74,11 @@ const Titulo = styled.div`
 
 `
 const Cartaz = styled.ul`
-
+    width: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
     padding-left: 25px;
     padding-right: 25px; 
 `
